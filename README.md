@@ -1,5 +1,7 @@
 # Toolz
 
+**NOTE:** This is a fork of [d3ward/toolz](https://github.com/d3ward/toolz)
+
 <p align="center">
  <img src="src/assets/toolz/icon.svg" alt="Toolz"
 	title="b2ntp" width="160" height="160" />
