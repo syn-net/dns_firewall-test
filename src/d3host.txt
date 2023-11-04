@@ -8,7 +8,7 @@
 # This list cover all the tests on https://d3ward.github.io/toolz/adblock
 # Type : Stable
 # Entries : 137
-# Updated On: 12/3/2023
+# Updated On: 4/11/2023
 # Created by: d3ward
 
 #============ Ads =============
@@ -65,6 +65,9 @@
 
 # --- MouseFlow
 0.0.0.0 mouseflow.com
+0.0.0.0 cdn.mouseflow.com
+0.0.0.0 o2.mouseflow.com
+0.0.0.0 gtm.mouseflow.com
 0.0.0.0 api.mouseflow.com
 0.0.0.0 tools.mouseflow.com
 0.0.0.0 cdn-test.mouseflow.com
@@ -141,6 +144,12 @@
 
 #============ Mix =============
 
+# --- blacklist.rpz
+0.0.0.0 t.co
+0.0.0.0 zmedia.com
+0.0.0.0 named.com
+0.0.0.0 any.named.com
+
 # --- Yahoo
 0.0.0.0 ads.yahoo.com
 0.0.0.0 analytics.yahoo.com
@@ -153,15 +162,6 @@
 0.0.0.0 log.fc.yahoo.com
 0.0.0.0 gemini.yahoo.com
 0.0.0.0 adtech.yahooinc.com
-
-# --- Yandex
-0.0.0.0 extmaps-api.yandex.net
-0.0.0.0 appmetrica.yandex.ru
-0.0.0.0 adfstat.yandex.ru
-0.0.0.0 metrika.yandex.ru
-0.0.0.0 advertising.yandex.ru
-0.0.0.0 offerwall.yandex.net
-0.0.0.0 adfox.yandex.ru
 
 # --- Unity
 0.0.0.0 auction.unityads.unity3d.com
