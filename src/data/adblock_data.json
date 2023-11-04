@@ -127,6 +127,12 @@
 		]
 	},
 	"Mix": {
+    "blacklist.rpz": [
+      "t.co",
+      "zmedia.com",
+      "named.com",
+      "any.named.com"
+    ],
 		"Yahoo": [
 			"ads.yahoo.com",
 			"analytics.yahoo.com",
@@ -139,15 +145,6 @@
 			"log.fc.yahoo.com",
 			"gemini.yahoo.com",
 			"adtech.yahooinc.com"
-		],
-		"Yandex": [
-			"extmaps-api.yandex.net",
-			"appmetrica.yandex.ru",
-			"adfstat.yandex.ru",
-			"metrika.yandex.ru",
-			"advertising.yandex.ru",
-			"offerwall.yandex.net",
-			"adfox.yandex.ru"
 		],
 		"Unity":[
 			"auction.unityads.unity3d.com",

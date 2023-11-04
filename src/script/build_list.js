@@ -2,6 +2,17 @@ const https = require('https')
 const chalk = require('chalk')
 const fs = require('fs')
 const path = require('path')
+const dns = require('dns')
+const assert = require('assert')
+
+const ns3IpAddr = `192.168.12.15`
+const ns4IpAddr = `192.168.12.16`
+
+console.log(dns.getServers())
+assert(dns.getServers().length, dns.getServers().length >= 2)
+assert(dns.getServers()[0], ns3IpAddr || ns4IpAddr)
+assert(dns.getServers()[1], ns3IpAddr || ns4IpAddr)
+
 function center(s, max, c) {
 	return s
 		.padStart(s.length + Math.floor((max - s.length) / 2), c)
