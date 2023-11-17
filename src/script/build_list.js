@@ -2,16 +2,22 @@ const https = require('https')
 const chalk = require('chalk')
 const fs = require('fs')
 const path = require('path')
-const dns = require('dns')
+const {Resolver} = require('dns');
+const resolver = new Resolver();
 const assert = require('assert')
 
-const ns3IpAddr = `192.168.12.15`
-const ns4IpAddr = `192.168.12.16`
+const dnsServersList = [
+  `192.168.12.15`, // ns3.home
+  `192.168.12.16` // ns4.home
+];
+resolver.setServers(dnsServersList);
 
-console.log(dns.getServers())
-assert(dns.getServers().length, dns.getServers().length >= 2)
-assert(dns.getServers()[0], ns3IpAddr || ns4IpAddr)
-assert(dns.getServers()[1], ns3IpAddr || ns4IpAddr)
+console.info(resolver.getServers());
+
+assert(dnsServersList.length >= 1);
+assert(resolver.getServers().length >= 2);
+assert(resolver.getServers()[0], dnsServersList[0] || dnsServersList[1]);
+assert(resolver.getServers()[1], dnsServersList[0] || dnsServersList[1]);
 
 function center(s, max, c) {
 	return s
@@ -51,6 +57,30 @@ const header = (entries, date, comment) => {
 		' Created by: d3ward'
 	)
 }
+
+const DEFAULT_RESOLVE_OPTIONS = {
+};
+
+// FIXME(jeff): This is still quite stubby; finish fleshing out the logic!
+//
+// https://nodejs.org/api/dns.html#
+/*async*/
+function resolve(host, options = DEFAULT_RESOLVE_OPTIONS) {
+  resolver.resolve4(host, options, (err, addresses) => {
+    const errMessage = new Error(err);
+
+    if(err) {
+      console.log(errMessage.message);
+    } else {
+      errMessage.code = 200;
+      /* no error */
+    }
+    return errMessage;
+
+    //console.info(addresses);
+  });
+}
+
 function test(obj, comment, pre, post) {
 	Object.keys(obj).forEach((category) => {
 		let value = obj[category]
@@ -58,7 +88,8 @@ function test(obj, comment, pre, post) {
 			let value2 = value[key]
 			if (value2)
 				value2.forEach((v) => {
-					https
+          resolve(v);
+          /*https
 						.get('https://' + v, (res) => {
 							if (res.statusCode >= 200 && res.statusCode < 300)
 								console.log(
@@ -82,7 +113,7 @@ function test(obj, comment, pre, post) {
 						})
 						.on('error', (error) => {
 							console.error(`${v}: ${error.message}`)
-						})
+						})*/
 				})
 		})
 	})
