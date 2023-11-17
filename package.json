@@ -1,5 +1,5 @@
 {
-  "name": "toolz",
+  "name": "dns_firewall-test",
   "version": "3.0.0",
   "description": "A set of accessible web tools",
   "scripts": {
@@ -16,7 +16,7 @@
   "author": "Eduard Ursu",
   "license": "(CC BY-NC-SA 4.0)",
   "bugs": {
-    "url": "https://github.com/d3ward/toolz/issues"
+    "url": "https://github.com/dns_firewall-test/issues"
   },
   "dependencies": {
     "@babel/core": "^7.22.5",
