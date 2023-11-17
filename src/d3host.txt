@@ -8,7 +8,7 @@
 # This list cover all the tests on https://d3ward.github.io/toolz/adblock
 # Type : Stable
 # Entries : 137
-# Updated On: 4/11/2023
+# Updated On: 16/11/2023
 # Created by: d3ward
 
 #============ Ads =============
