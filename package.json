@@ -3,11 +3,14 @@
   "version": "3.0.0",
   "description": "A set of accessible web tools",
   "scripts": {
+    "start": "npm run-script build-list",
+    "test": "npm run-script build-list",
     "dev": "webpack serve --config config/webpack.dev.js",
     "build": "webpack --config config/webpack.prod.js",
     "build-list": "node src/script/build_list.js",
     "format": "prettier --write '**/*.{js,ts}'",
-    "lint": "eslint  'src/**/*.{js,ts}' && echo 'Linting complete!'",
+    "lint": "eslint  'src/**/*.{js,ts}' && npm run-script lint:json && echo 'Linting complete!'",
+    "lint:json": "jsonlint ./package.json && jsonlint ./src/data/*.json",
     "lint-fix": "eslint  'src/**/*.{js,ts}' --fix"
   },
   "author": "Eduard Ursu",
@@ -45,6 +48,7 @@
     "webpack-merge": "^5.9.0"
   },
   "devDependencies": {
+    "jsonlint": "^1.6.3",
     "ejs": "^3.1.9",
     "template-ejs-loader": "^0.9.4",
     "webpack": "^5.88.0",
