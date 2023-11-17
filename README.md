@@ -1,9 +1,9 @@
-# Toolz
+# dns_firewall-test
 
 **NOTE:** This is a fork of [d3ward/toolz](https://github.com/d3ward/toolz)
 
 <p align="center">
- <img src="src/assets/toolz/icon.svg" alt="Toolz"
+ <img src="src/assets/toolz/icon.svg" alt="dns_firewall_test"
 	title="b2ntp" width="160" height="160" />
 </p>
 A set of testing and verification tools, with simple and beautiful design 
