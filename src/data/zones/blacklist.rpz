@@ -1,0 +1,19 @@
+blacklist.rpz. IN SOA fake.RPZ. hostmaster.fake.RPZ. 2024021501 10000 600 3600000 604800
+mail.historyreviewed.best.blacklist.rpz. 0 IN CNAME .
+samsungads.com.blacklist.rpz. 0 IN CNAME .
+www.historyreviewed.best.blacklist.rpz. 0 IN CNAME .
+samsung-com.112.207.net.blacklist.rpz. 0 IN CNAME .
+analytics-api.samsunghealthcn.com.blacklist.rpz. 0 IN CNAME .
+widgets.pinterest.com.blacklist.rpz. 0 IN CNAME .
+fwtracks.freshmarketer.com.blacklist.rpz. 0 IN CNAME .
+dev.historyreviewed.best.blacklist.rpz. 0 IN CNAME .
+smetrics.samsung.com.blacklist.rpz. 0 IN CNAME .
+historyreviewed.best.blacklist.rpz. 0 IN CNAME .
+t.co.blacklist.rpz. 0 IN CNAME .
+browser.sentry-cdn.com.blacklist.rpz. 0 IN CNAME .
+nmetrics.samsung.com.blacklist.rpz. 0 IN CNAME .
+realtime.luckyorange.com.blacklist.rpz. 0 IN CNAME .
+named.com.blacklist.rpz. 0 IN CNAME .
+zmedia.com.blacklist.rpz. 0 IN CNAME .
+cdn.cookielaw.org.blacklist.rpz. 0 IN CNAME .
+blacklist.rpz. 0 IN CNAME .

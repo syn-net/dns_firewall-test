@@ -1,0 +1,22 @@
+{ 
+	"Ads": {
+    "blacklist.rpz": [
+      "cdn.cookielaw.org"
+    ],
+    "whitelist.rpz": [
+      "click.pstmrk.it",
+      "fb.me",
+      "click.discord.com",
+      "s.youtube.com",
+      "dl.google.com",
+      "cdn.signal.org",
+      "www.signal.org",
+      "itunes.apple.com",
+      "api.facebook.com"
+    ],
+    "redir": [
+      "test.redir",
+      "certpl.hole"
+    ]
+	}
+}

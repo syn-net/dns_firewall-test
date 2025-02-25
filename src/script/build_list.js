@@ -1,12 +1,26 @@
-const https = require('https')
-const chalk = require('chalk')
-const fs = require('fs')
-const path = require('path')
-const dns = require('dns')
-const assert = require('assert')
+#!/usr/bin/env node
+`use strict`;
 
-const ns3IpAddr = `192.168.12.15`
-const ns4IpAddr = `192.168.12.16`
+const https = require('https');
+const chalk = require('chalk');
+const fs = require('fs');
+const path = require('path');
+const dns = require('dns');
+const assert = require('assert');
+
+const sw2IpAddr = `192.168.12.252`; // sw2.home
+const dockerIpAddr = `192.168.12.12`; // docker.fs1.home
+const ns3IpAddr = `192.168.12.15`; // ns3.home
+const ns4IpAddr = `192.168.12.16`; // ns4.home
+
+/*
+const testResolvers = [
+  sw2IpAddr,
+  dockerIpAddr,
+  ns3IpAddr,
+  ns4IpAddr,
+];
+*/
 
 console.log(dns.getServers())
 assert(dns.getServers().length, dns.getServers().length >= 2)
@@ -18,6 +32,7 @@ function center(s, max, c) {
 		.padStart(s.length + Math.floor((max - s.length) / 2), c)
 		.padEnd(max, c)
 }
+
 const header = (entries, date, comment) => {
 	let ext = comment == '#' ? '.txt' : '.adblock'
 	return (
@@ -51,6 +66,7 @@ const header = (entries, date, comment) => {
 		' Created by: d3ward'
 	)
 }
+
 function test(obj, comment, pre, post) {
 	Object.keys(obj).forEach((category) => {
 		let value = obj[category]
@@ -87,6 +103,7 @@ function test(obj, comment, pre, post) {
 		})
 	})
 }
+
 function build(obj, comment, pre, post) {
 	let txt = ''
 	let entries = 0
@@ -108,6 +125,7 @@ function build(obj, comment, pre, post) {
 		date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()
 	return header(entries, d, comment) + txt
 }
+
 function write(output, input) {
 	fs.writeFile(output, input, { encoding: 'utf8' }, function (err) {
 		if (err) {
@@ -121,6 +139,9 @@ function write(output, input) {
 		})
 	})
 }
+
+// main execution
+
 fs.readFile(
 	path.resolve(__dirname, '../data/adblock_data.json'),
 	'utf8',
@@ -143,5 +164,24 @@ fs.readFile(
 		} catch (err) {
 			console.log('Error parsing JSON string:', err)
 		}
-	}
+  }
 )
+
+const whitelistFilePath = `../data/whitelist.json`;
+const filePath = 
+  path.resolve(__dirname, whitelistFilePath);
+
+const params = `utf8`;
+fs.readFile(filePath, params, (err, jsonStr) => {
+    if(err) {
+      return console.error(`ReadError:`, err);
+    }
+
+    try {
+      const obj = JSON.parse(jsonStr);
+      test(obj);
+    } catch(err) {
+      console.error(`JSONParseError:`, err);
+    }
+  }
+);
